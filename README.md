@@ -5,7 +5,7 @@ A colorful, playful expense tracker built with React. Add income and expenses, w
 **🔗 Live demo:** https://jeet-4u.github.io/expense-tracker/
 
 <!-- Add a screenshot: upload an image to the repo (e.g. screenshot.png) and uncomment the line below -->
-<!-- ![Expense Tracker screenshot](Screenshot.png) -->
+![Expense Tracker screenshot](tracker.png)
 
 ## Features
 
