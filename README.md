@@ -6,6 +6,7 @@ A colorful, playful expense tracker built with React. Add income and expenses, w
 
 <!-- Add a screenshot: upload an image to the repo (e.g. screenshot.png) and uncomment the line below -->
 <!-- ![Expense Tracker screenshot](screenshot.png) -->
+Screenshot 2026-10-06 004948.png
 
 ## Features
 
