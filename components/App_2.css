@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700&display=swap');
+
+:root {
+  --paper: #FFF8EC;
+  --ink: #2B2350;
+  --pink: #FF6B9D;
+  --yellow: #FFD23F;
+  --mint: #2EC4B6;
+  --grape: #7B5CFF;
+  --income: #12a594;
+  --expense: #e5246b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+}
+
+/* the mouse-reactive background sits behind everything */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fredoka', sans-serif;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+h2 { color: var(--ink); }
+
+h3 {
+  font-size: 1.2rem;
+  border-bottom: 3px dotted var(--ink);
+  padding-bottom: 8px;
+  margin: 28px 0 14px;
+}
+
+h4 {
+  font-size: 0.9rem;
+  margin: 18px 0 2px;
+  color: var(--grape);
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 14px;
+}
+
+/* income / expense box */
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0;
+  margin: 12px 0 8px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+  padding: 12px 8px;
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  transition: transform 0.15s;
+}
+
+.inc-exp-container > div:first-child { background: #c9f4ee; border-right: 3px solid var(--ink); }
+.inc-exp-container > div:last-child { background: #ffd3e3; }
+.inc-exp-container > div:hover { transform: rotate(-2deg) scale(1.04); }
+
+.inc-exp-container h4 { margin: 0 0 4px; color: var(--ink); }
+
+.money {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+.money.plus { color: var(--income); }
+.money.minus { color: var(--expense); }
+
+/* history list */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  padding-left: 14px; /* room for the delete button */
+}
+
+.list li {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: 0 0 10px;
+  transition: transform 0.15s;
+}
+.list li:hover { transform: translateX(4px); }
+.list li.plus { border-right: 8px solid var(--mint); }
+.list li.minus { border-right: 8px solid var(--pink); }
+
+.delete-btn {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%) scale(0);
+  width: 26px;
+  height: 26px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.list li:hover .delete-btn { transform: translate(-50%, -50%) scale(1); }
+
+/* form */
+label { display: block; margin: 12px 0 6px; font-weight: 700; }
+
+input[type='text'],
+input[type='number'] {
+  width: 100%;
+  padding: 11px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 12px;
+}
+
+input:focus-visible {
+  outline: 3px solid var(--grape);
+  outline-offset: 2px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--yellow);
+  border: 3px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--ink);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+.btn:hover { background: var(--pink); }
+.btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+.btn:focus-visible { outline: 3px solid var(--grape); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
